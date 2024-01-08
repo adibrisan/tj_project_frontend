@@ -1,5 +1,3 @@
-// Dashboard.js
-
 import React, { useState, useContext } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { Input, Button, Row, Col, Select } from "antd";
@@ -183,7 +181,6 @@ const Operator = () => {
               if (car.registrationNumber === registrationNumber) {
                 return { ...car, ...carBody };
               }
-              console.log("AICICICICICI", car);
               return car;
             })
           );
