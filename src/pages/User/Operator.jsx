@@ -26,13 +26,13 @@ const Operator = () => {
   const [filter, setFilter] = useState({
     brand: "",
     year: "",
-    color: "",
+    fuelType: "",
   });
   useSetCurrentUser();
   const [carFilter, setCarFilter] = useState({
     brand: "",
     year: "",
-    color: "",
+    fuelType: "",
   });
   const { carList, setCarList } = useGetAllCars(carFilter);
   const { currentUser } = useContext(UserContext);
@@ -236,12 +236,12 @@ const Operator = () => {
     setCarFilter({
       brand: "",
       year: "",
-      color: "",
+      fuelType: "",
     });
     setFilter({
       brand: "",
       year: "",
-      color: "",
+      fuelType: "",
     });
   };
 
@@ -427,6 +427,7 @@ const Operator = () => {
               name="brand"
               value={filter.brand}
               onChange={onFilterChange}
+              allowClear
             />
           </Col>
           <Col span={6}>
@@ -436,15 +437,17 @@ const Operator = () => {
               name="year"
               value={filter.year}
               onChange={onFilterChange}
+              allowClear
             />
           </Col>
           <Col span={6}>
             <Input
               type="text"
-              placeholder="Color"
-              name="color"
-              value={filter.color}
+              placeholder="Fuel Type"
+              name="fuelType"
+              value={filter.fuelType}
               onChange={onFilterChange}
+              allowClear
             />
           </Col>
           <Col span={2}>

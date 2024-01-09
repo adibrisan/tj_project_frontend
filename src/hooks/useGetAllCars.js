@@ -7,12 +7,12 @@ const useGetAllCars = (filter) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/api/cars/filter-cars?color=${filter.color}&brand=${filter.brand}&year=${filter.year}`
+        `http://localhost:8080/api/cars/filter-cars?fuelType=${filter.fuelType}&brand=${filter.brand}&year=${filter.year}`
       )
       .then((res) => {
         setCarList(res.data);
       });
-  }, [filter.brand, filter.year, filter.color]);
+  }, [filter.brand, filter.year, filter.fuelType]);
   return { carList, setCarList };
 };
 

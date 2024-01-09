@@ -12,12 +12,12 @@ const Visitor = () => {
   const [filter, setFilter] = useState({
     brand: "",
     year: "",
-    color: "",
+    fuelType: "",
   });
   const [carFilter, setCarFilter] = useState({
     brand: "",
     year: "",
-    color: "",
+    fuelType: "",
   });
   useSetCurrentUser();
   const { carList } = useGetAllCars(carFilter);
@@ -96,6 +96,19 @@ const Visitor = () => {
     setCarFilter(filter);
   };
 
+  const clearFilter = () => {
+    setCarFilter({
+      brand: "",
+      year: "",
+      fuelType: "",
+    });
+    setFilter({
+      brand: "",
+      year: "",
+      fuelType: "",
+    });
+  };
+
   const onLogoutClick = () => {
     navigate("/");
   };
@@ -140,6 +153,7 @@ const Visitor = () => {
             name="brand"
             value={filter.brand}
             onChange={onFilterChange}
+            allowClear
           />
         </Col>
         <Col span={6}>
@@ -149,20 +163,27 @@ const Visitor = () => {
             name="year"
             value={filter.year}
             onChange={onFilterChange}
+            allowClear
           />
         </Col>
         <Col span={6}>
           <Input
             type="text"
-            placeholder="Color"
-            name="color"
-            value={filter.color}
+            placeholder="Fuel Type"
+            name="fuelType"
+            value={filter.fuelType}
             onChange={onFilterChange}
+            allowClear
           />
         </Col>
-        <Col span={6}>
+        <Col span={2}>
           <Button type="primary" onClick={applyFilter}>
             Apply filter
+          </Button>
+        </Col>
+        <Col span={2}>
+          <Button type="default" onClick={clearFilter}>
+            Clear filter
           </Button>
         </Col>
       </Row>
